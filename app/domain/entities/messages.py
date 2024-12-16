@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from app.domain.values.messages import Text
+from domain.values.messages import Text
 
 
 @dataclass

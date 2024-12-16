@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
-from app.domain.values.base import BaseValueObject
+from domain.exceptions.messages import TextTooLongException
+from domain.values.base import BaseValueObject
 
 
 @dataclass(frozen=True)
@@ -9,4 +10,4 @@ class Text(BaseValueObject):
 
     def value(self):
         if len(self.value) > 255:
-            raise TextTooLongException()
+            raise TextTooLongException(self.value)

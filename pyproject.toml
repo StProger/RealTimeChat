@@ -15,6 +15,10 @@ faker = "^33.1.0"
 pytest-asyncio = "^0.25.0"
 punq = "^0.7.0"
 
+[tool.pytest.ini_options]
+pythonpath = [
+  "./app"
+]
 
 [build-system]
 requires = ["poetry-core"]

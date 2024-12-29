@@ -12,7 +12,7 @@ class BaseChatRepository(ABC):
         ...
 
     @abstractmethod
-    def add_chat(self, chat: Chat) -> None:
+    async def add_chat(self, chat: Chat) -> None:
         ...
 
 @dataclass
@@ -23,14 +23,15 @@ class MemoryChatRepository(ABC):
     )
 
     async def check_exist_by_title(self, title: str) -> bool:
-
+        
         try:
+            
             return bool(next(
-                chat for chat in self._saved_chats if chat.title == title
+                chat for chat in self._saved_chats if chat.title.as_generic_type() == title
             ))
         except StopIteration:
             return False
 
 
-    def add_chat(self, chat: Chat):
+    async def add_chat(self, chat: Chat):
         self._saved_chats.append(chat)

@@ -3,7 +3,6 @@ from fastapi import HTTPException, status
 
 from punq import Container
 
-from application.api.dependencies.containers import container
 from application.api.messages.schemas import CreateChatRequestSchema, CreateChatResponseSchema
 from application.api.schemas import ErrorSchema
 from domain.exceptions.base import ApplicationException
